@@ -4,6 +4,7 @@ import org.apache.commons.httpclient.*;
 import pivotsecurity.rest.client.*;
 import org.apache.commons.codec.binary.Base64;
 import org.json.JSONObject;
+import org.json.JSONArray;
 
 public abstract class ApiBase {
 
@@ -43,7 +44,7 @@ public abstract class ApiBase {
     	return client;
     }
 
-	protected JSONObject getResult(String op, String reqbody){
+	protected Object getResult(String op, String reqbody){
     	RestClient client = this.buildClient();
 		RestRequest request = new RestRequest().setMethod(RestRequest.Method.Post);
 		request.addHeader("Accept", "application/json");
@@ -56,7 +57,12 @@ public abstract class ApiBase {
     	try{
     		return new JSONObject(body);
 		}catch(org.json.JSONException e){
-    		// NOT JSON return just body
+    		// NOT JSON try json Array
+    		try{
+    			return new JSONArray(body);	
+			}catch(org.json.JSONException ex){
+				// not JSON!
+			}
 		}
     	return  new JSONObject("{\"result\":" + body + "}");
 	}

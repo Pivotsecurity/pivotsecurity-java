@@ -3,6 +3,7 @@ package pivotsecurity.rest;
 
 import pivotsecurity.rest.ApiBase;
 import org.json.JSONObject;
+import org.json.JSONArray;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -25,69 +26,69 @@ public class Account extends ApiBase {
 		if (null == uid) uid = "";
 	    if (null == email) email = "";
 	    String params = "{\"uid\":\"" + uid + "\",\"email\":\""+ email + "\",\"channle\":\""+ channel+ "\"}";
-	    return super.getResult("account/create", params);
+	    return (JSONObject)super.getResult("account/create", params);
     }
 
-	public JSONObject info(String uid, String email){
+	public JSONArray info(String uid, String email){
 		if (null == uid) uid = "";
 		if (null == email) email = "";
 		String params = "{\"uid\":\"" + uid + "\",\"email\":\""+ email + "\"}";
-		return super.getResult("account/info", params);
+		return (JSONArray)super.getResult("account/info", params);
 	}
 
 	public JSONObject getRiskscore(String uid, String email){
 		if (null == uid) uid = "";
 		if (null == email) email = "";
 		String params = "{\"uid\":\"" + uid + "\",\"email\":\""+ email + "\"}";
-		return super.getResult("account/riskscore", params);
+		return (JSONObject)super.getResult("account/riskscore", params);
 	}
 	public JSONObject setRiskscore(String uid, String email, String riskscore){
 		if (null == uid) uid = "";
 		if (null == email) email = "";
 		String params = "{\"uid\":\"" + uid + "\",\"email\":\""+ email + "\",\"riskscore\":\""+ riskscore+ "\"}";
-		return super.getResult("account/updateriskscore", params);
+		return (JSONObject)super.getResult("account/updateriskscore", params);
 	}
 	public JSONObject getQRCode(String uid, String email){
 		if (null == uid) uid = "";
 		if (null == email) email = "";
 		String params = "{\"uid\":\"" + uid + "\",\"email\":\""+ email + "\"}";
-		return super.getResult("account/qrocde", params);
+		return (JSONObject)super.getResult("account/qrocde", params);
 	}
 	public JSONObject getAuthCode(String uid, String email){
 		if (null == uid) uid = "";
 		if (null == email) email = "";
 		String params = "{\"uid\":\"" + uid + "\",\"email\":\""+ email + "\"}";
-		return super.getResult("account/authcode", params);
+		return (JSONObject)super.getResult("account/authcode", params);
 	}
-	public JSONObject getLogs(String uid, String email){
+	public JSONArray getLogs(String uid, String email){
 		if (null == uid) uid = "";
 		if (null == email) email = "";
 		String params = "{\"uid\":\"" + uid + "\",\"email\":\""+ email + "\"}";
-		return super.getResult("account/logs", params);
+		return (JSONArray)super.getResult("account/logs", params);
 	}
 
 	public JSONObject lockCustomer(String uid, String email){
 		if (null == uid) uid = "";
 		if (null == email) email = "";
 		String params = "{\"uid\":\"" + uid + "\",\"email\":\""+ email + "\"}";
-		return super.getResult("account/lock", params);
+		return (JSONObject)super.getResult("account/lock", params);
 	}
 	public JSONObject unlockCustomer(String uid, String email){
 		if (null == uid) uid = "";
 		if (null == email) email = "";
 		String params = "{\"uid\":\"" + uid + "\",\"email\":\""+ email + "\"}";
-		return super.getResult("account/unlock", params);
+		return (JSONObject)super.getResult("account/unlock", params);
 	}
 	public JSONObject setTraingData(String uid, String email, String data){
 		if (null == uid) uid = "";
 		if (null == email) email = "";
 		String params = "{\"uid\":\"" + uid + "\",\"email\":\""+ email + "\",\"data\":\""+ data+ "\"}";
-		return super.getResult("account/trainml", params);
+		return (JSONObject)super.getResult("account/trainml", params);
 	}
 	public JSONObject getTestData(String uid, String email, String data){
 		if (null == uid) uid = "";
 		if (null == email) email = "";
 		String params = "{\"uid\":\"" + uid + "\",\"email\":\""+ email + "\",\"data\":\""+ data+ "\"}";
-		return super.getResult("account/testml", params);
+		return (JSONObject)super.getResult("account/testml", params);
 	}
 }

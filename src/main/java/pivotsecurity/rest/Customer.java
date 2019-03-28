@@ -16,14 +16,14 @@ public class Customer extends ApiBase {
         if (null == uid) uid = "";
         if (null == email) email = "";
         String params = "{\"uid\":\"" + uid + "\",\"email\":\""+ email + "\"}";
-        return super.getResult("customer/auth", params);
+        return (JSONObject)super.getResult("customer/auth", params);
     }
 
     public JSONObject verify(String uid, String email, String code){
         if (null == uid) uid = "";
         if (null == email) email = "";
         String params = "{\"uid\":\"" + uid + "\",\"email\":\""+ email + "\",\"code\":\""+ code+ "\"}";
-        return super.getResult("customer/verify", params);
+        return (JSONObject)super.getResult("customer/verify", params);
     }
 
 }

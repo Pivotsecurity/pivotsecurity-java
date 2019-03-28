@@ -23,6 +23,7 @@ import static org.junit.Assert.*;
 import java.io.*;
 import java.net.*;
 import org.json.JSONObject;
+import org.json.JSONArray;
 
 public class PivotSecurityClientTest {
 
@@ -44,8 +45,8 @@ public class PivotSecurityClientTest {
 
     @Test
     public void infoTest() {
-        JSONObject result = this.account.info("A13","");
-       	assertEquals(result.getString("uid"), "A13");
+        JSONArray result = this.account.info("A13","");
+       	assertEquals(result.getJSONObject(0).getString("uid"), "A13");
     }
 
     @Test

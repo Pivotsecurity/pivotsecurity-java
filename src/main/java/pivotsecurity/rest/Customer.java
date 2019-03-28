@@ -16,7 +16,7 @@ public class Customer extends ApiBase {
         if (null == uid) uid = "";
         if (null == email) email = "";
         String params = "{\"uid\":\"" + uid + "\",\"email\":\""+ email + "\"}";
-        return super.getResult("customer/authcode", params);
+        return super.getResult("customer/auth", params);
     }
 
     public JSONObject verify(String uid, String email, String code){

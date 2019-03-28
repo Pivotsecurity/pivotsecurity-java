@@ -33,7 +33,7 @@ public abstract class ApiBase {
 		if (null == this.client){
 	    	HttpClient httpClient = new HttpClient();
 			this.client = new RestClientImpl(httpClient);
-			this.client.setBaseUrl("http://api.pivotsecurity.com/api/");
+			this.client.setBaseUrl("https://api.pivotsecurity.com/api/");
 
 			String auth = this.KEY + ":";
 			byte[] encodedAuth = Base64.encodeBase64(auth.getBytes(java.nio.charset.Charset.forName("US-ASCII")));

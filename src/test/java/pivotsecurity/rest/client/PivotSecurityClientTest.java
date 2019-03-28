@@ -22,14 +22,19 @@ import pivotsecurity.rest.Customer;
 import static org.junit.Assert.*;
 import java.io.*;
 import java.net.*;
+import org.json.JSONObject;
 
 public class PivotSecurityClientTest {
 
     private static Logger LOG = LoggerFactory.getLogger(RestClientTest.class);
+	private Account account = null;
+	private Customer customer = null;
 
 
     public PivotSecurityClientTest() {
         super();
+        this.account = new Account("","");
+        this.customer = new Customer("","");
         // TODO Auto-generated constructor stub
     }
 
@@ -38,24 +43,21 @@ public class PivotSecurityClientTest {
     }
 
     @Test
-    public void testURL() throws Exception {
-
-
-    }
-
-    @Test
     public void infoTest() {
-        Account account = new Account("<Public_Key>","<Private_key>");
-        account.info("A13","");
-        //assertEquals("HEAD", "");
+        JSONObject result = this.account.info("A13","");
+       	assertEquals(result.getString("uid"), "A13");
     }
 
     @Test
     public void authCodeTest() {
-        Customer customer = new Customer("<Public_Key>","<Private_key>");
-        customer.getAuthCode("A13","");
-        //assertEquals("HEAD", "");
+        JSONObject result = this.customer.getAuthCode("A13","");
+       	assertEquals(result.getString("code"), "123123");
     }
 
+    @Test
+    public void verifyTest() {
+        JSONObject result = this.customer.verify("A13","", "123123");
+       	assertEquals(result.getString("status"), "success");
+    }
 
 }

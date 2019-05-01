@@ -91,4 +91,22 @@ public class Account extends ApiBase {
 		String params = "{\"uid\":\"" + uid + "\",\"email\":\""+ email + "\",\"data\":\""+ data+ "\"}";
 		return (JSONObject)super.getResult("account/testml", params);
 	}
+	public JSONObject getAuthWithMetadata(String uid, String email, String metadata){
+		if (null == uid) uid = "";
+		if (null == email) email = "";
+		String params = "{\"uid\":\"" + uid + "\",\"email\":\""+ email + "\",\"metadata\":\""+ metadata+ "\"}";
+		return (JSONObject)super.getResult("account/authwithmetadata", params);
+	}
+	public JSONObject sendAuthWithMetadata(String uid, String email, String metadata){
+		if (null == uid) uid = "";
+		if (null == email) email = "";
+		String params = "{\"uid\":\"" + uid + "\",\"email\":\""+ email + "\",\"metadata\":\""+ metadata+ "\"}";
+		return (JSONObject)super.getResult("account/sendauthwithmetadata", params);
+	}
+	public JSONObject verifyAuthWithMetadata(String uid, String email, String code){
+		if (null == uid) uid = "";
+		if (null == email) email = "";
+		String params = "{\"uid\":\"" + uid + "\",\"email\":\""+ email + "\",\"code\":\""+ code+ "\"}";
+		return (JSONObject)super.getResult("account/verifywithmetadata", params);
+	}	
 }

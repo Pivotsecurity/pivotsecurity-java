@@ -1,5 +1,7 @@
 # Pivot Security - Java
 
+Read full docs: https://github.com/Pivotsecurity/pivotsecurity-java/tree/master/doc 
+
 Java API interface for Pivot Security API.
 
 All updates to this library is documented in our [CHANGELOG](https://github.com/pivotsecurity/pivotsecurity-java/blob/master/CHANGELOG.md).

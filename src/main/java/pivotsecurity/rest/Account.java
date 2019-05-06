@@ -109,4 +109,11 @@ public class Account extends ApiBase {
 		String params = "{\"uid\":\"" + uid + "\",\"email\":\""+ email + "\",\"code\":\""+ code+ "\"}";
 		return (JSONObject)super.getResult("account/verifywithmetadata", params);
 	}	
+	public JSONObject verifySession(String uid, String email, String sessionid){
+		if (null == uid) uid = "";
+		if (null == email) email = "";
+		String params = "{\"uid\":\"" + uid + "\",\"email\":\""+ email + "\",\"sessionid\":\""+ sessionid+ "\"}";
+		return (JSONObject)super.getResult("account/verifysession", params);
+	}	
+	
 }

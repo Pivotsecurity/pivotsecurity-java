@@ -12,6 +12,13 @@ public class Customer extends ApiBase {
         super.setKey(public_key);
     }
 
+    public JSONObject create(String uid, String email, String channel){
+        if (null == uid) uid = "";
+        if (null == email) email = "";
+        String params = "{\"uid\":\"" + uid + "\",\"email\":\""+ email + "\",\"channel\":\""+ channel+ "\"}";
+        return (JSONObject)super.getResult("customer/create", params);
+    }
+
     public JSONObject getAuthCode(String uid, String email){
         if (null == uid) uid = "";
         if (null == email) email = "";
